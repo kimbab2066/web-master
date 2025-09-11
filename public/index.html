@@ -8,14 +8,36 @@
       h3:first-child {
         color: red;
       }
+      li {
+        list-style: none;
+      }
     </style>
   </head>
   <body>
     <div id="container">
       <h3 id="hello">Hello</h3>
       <h3 id="friend">Friend</h3>
-      <input type="text" name="user_value" id="user_value" value="95" />
-      <button onclick="changeValue()">버튼</button>
+      <ul>
+        <li>
+          <input type="text" name="user_value" id="user_value" value="95" />
+          <button onclick="changeValue()">버튼</button>
+        </li>
+        <span>계산기</span>
+        <li>
+          <input type="number" id="user_value1" />
+          <select onchange="Calculate()" name="" id="select1">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+          <input type="number" id="user_value2" />
+        </li>
+        <span>결과</span>
+        <li>
+          <input type="text" id="result" />
+        </li>
+      </ul>
     </div>
     <!-- <script src="js/index.js" /> 
     <script src="js/variable.js" />
