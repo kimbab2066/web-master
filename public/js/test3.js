@@ -7,4 +7,4 @@ if (res % 3 == 0) {
 } else {
   console.log(`${a} + ${b} = ${res} 즉, 3의 배수가 아님`);
 }
-console.log('testtesttest')
+console.log('testtesttestttttt')
