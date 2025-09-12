@@ -3,51 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      h3:first-child {
-        color: red;
-      }
-      li {
-        list-style: none;
-      }
-    </style>
+    <title>반복문, 함수, 이벤트</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="container">
-      <h3 id="hello">Hello</h3>
-      <h3 id="friend">Friend</h3>
-      <ul>
-        <li>
-          <input type="text" name="user_value" id="user_value" value="95" />
-          <button onclick="changeValue()">버튼</button>
+      <h3>반복문, 함수, 이벤트</h3>
+      <ul id="test-list">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="list bg-base-100 rounded-box shadow-md">
+        <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
+          Most played songs this week
         </li>
-        <span>계산기</span>
-        <li>
-          <input type="number" id="user_value1" />
-          <!-- <select onchange="Calculate()" name="" id="select1"> -->
-          <select onchange="Cal()" name="" id="oper">
-            <option value="+" selected>+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-          </select>
-          <input type="number" id="user_value2" />
+
+        <li class="list-row">
+          <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
+          <div>
+            <img
+              class="size-10 rounded-box"
+              src="https://img.daisyui.com/images/profile/demo/1@94.webp"
+            />
+          </div>
+          <div class="list-col-grow">
+            <div>Dio Lupa</div>
+            <div class="text-xs uppercase font-semibold opacity-60">
+              Remaining Reason
+            </div>
+          </div>
+          <button class="btn btn-square btn-ghost">
+            <svg
+              class="size-[1.2em]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M6 3L20 12 6 21 6 3z"></path>
+              </g>
+            </svg>
+          </button>
         </li>
-        <span>결과</span>
-        <li>
-          <input type="text" id="result" />
+
+        <li class="list-row">
+          <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
+          <div>
+            <img
+              class="size-10 rounded-box"
+              src="https://img.daisyui.com/images/profile/demo/4@94.webp"
+            />
+          </div>
+          <div class="list-col-grow">
+            <div>Ellie Beilish</div>
+            <div class="text-xs uppercase font-semibold opacity-60">
+              Bears of a fever
+            </div>
+          </div>
+          <button class="btn btn-square btn-ghost">
+            <svg
+              class="size-[1.2em]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M6 3L20 12 6 21 6 3z"></path>
+              </g>
+            </svg>
+          </button>
+        </li>
+
+        <li class="list-row">
+          <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
+          <div>
+            <img
+              class="size-10 rounded-box"
+              src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+            />
+          </div>
+          <div class="list-col-grow">
+            <div>Sabrino Gardener</div>
+            <div class="text-xs uppercase font-semibold opacity-60">
+              Cappuccino
+            </div>
+          </div>
+          <button class="btn btn-square btn-ghost">
+            <svg
+              class="size-[1.2em]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M6 3L20 12 6 21 6 3z"></path>
+              </g>
+            </svg>
+          </button>
         </li>
       </ul>
     </div>
-    <!-- <script src="js/index.js" /> 
-    <script src="js/variable.js" />
-    <script src="js/test.js"></script>
-    <script src="js/operator.js"></script>
-    <script src="js/test2.js"></script> -->
-    <!-- <script src="js/test3.js"></script> -->
-    <script src="js/index.js"></script>
-    <!-- <script src="js/condition.js"></script> -->
-    <script src="js/todo.js"></script>
+    <!-- <script src="js/second/for.js"></script> -->
+    <!-- <script src="js/second/for2.js"></script> -->
+    <!-- <script src="js/second/while.js"></script> -->
+    <script src="js/second/while2.js"></script>
   </body>
 </html>
