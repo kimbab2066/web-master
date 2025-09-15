@@ -24,7 +24,7 @@
         <li></li>
         <li></li>
       </ul>
-      <ul class="list bg-base-100 rounded-box shadow-md">
+      <!-- <ul class="list bg-base-100 rounded-box shadow-md">
         <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
           Most played songs this week
         </li>
@@ -127,11 +127,73 @@
             </svg>
           </button>
         </li>
+      </ul> -->
+      <!-- <script src="js/second/for.js"></script> -->
+      <!-- <script src="js/second/for2.js"></script> -->
+      <!-- <script src="js/second/while.js"></script> -->
+      <!-- <script src="js/second/while2.js"></script> -->
+      <!-- <script src="js/second/function.js"></script> -->
+      <ul>
+        <li>
+          <label for="n1">값1: </label>
+          <input type="text" name="n1" id="n1" />
+          <select name="oper" id="oper" onclick="cal()">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">*</option>
+            <option value="4">/</option>
+          </select>
+          <label for="n2">값2: </label>
+          <input type="text" name="n2" id="n2" />
+          =
+          <input type="text" id="result" />
+        </li>
       </ul>
+      <div id="student">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>학생번호</th>
+              <td><input type="text" name="std_no" id="std_no" /></td>
+            </tr>
+            <tr>
+              <th>학생이름</th>
+              <td><input type="text" id="std_name" name="std_name" /></td>
+            </tr>
+            <tr>
+              <th>점수</th>
+              <td><input type="number" id="std_score" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <button id="addBtn" class="btn btn-primary">등록</button>
+                <button class="addBtn btn btn-secondary">수정</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>이름</th>
+              <th>점수</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <!-- <script src="js/second/for.js"></script> -->
-    <!-- <script src="js/second/for2.js"></script> -->
-    <!-- <script src="js/second/while.js"></script> -->
-    <script src="js/second/while2.js"></script>
+    <!-- <script src="js/second/todo.js"></script> -->
+    <!-- <script src="js/second/function2.js"></script> -->
+    <!-- <script src="js/second/function3.js"></script> -->
+    <!-- <script src="js/third/array.js"></script>
+    <script src="js/third/event.js"></script>
+    <script src="js/third/object.js"></script> -->
+    <script src="js/third/dom.js"></script>
   </body>
 </html>
