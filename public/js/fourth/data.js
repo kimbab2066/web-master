@@ -71,5 +71,5 @@ const data = [
   },
 ];
 
-// const data = JSON.parse(array);
+// const result = JSON.parse(array);
 console.log(data);
