@@ -1,0 +1,13 @@
+const fruits = ["apple", "peach"];
+console.log("변경 전", fruits);
+fruits.push("kiwi");
+fruits[0] = "orange";
+fruits.pop();
+fruits.unshift("melon");
+fruits.shift();
+fruits.splice(0, 1, "kiwi");
+console.log("변경 후", fruits);
+console.log("변경 전", fruits);
+// fruits.splice(1, 1);
+fruits.splice(0, 0, "orange");
+console.log("변경 후", fruits);

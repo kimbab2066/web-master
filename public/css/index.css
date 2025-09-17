@@ -2,3 +2,29 @@ table {
   text-align: center;
   vertical-align: middle;
 }
+
+.sunday {
+  background-color: red;
+  color: white;
+}
+
+.saturday {
+  background-color: blue;
+  color: white;
+}
+
+.outer {
+  width: 800px;
+  height: 400px;
+  background-color: yellow;
+}
+.outer > .inner {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  background-color: aqua;
+  color: red;
+  margin: 2px;
+  text-align: center;
+  line-height: 30px;
+}
