@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UPDATE</title>
+    <link rel="stylesheet" href="../../css/board.css" />
+  </head>
+  <body>
+    <div class="add-student">
+      <form action="#" class="student-form">
+        <div class="form-group">
+          <label for="sno">번호</label>
+          <input type="text" id="sno" placeholder="학번을 입력하세요" />
+        </div>
+        <div class="form-group">
+          <label for="sname">이름</label>
+          <input type="text" id="sname" placeholder="이름을 입력하세요" />
+        </div>
+        <div class="form-group">
+          <label for="sscore">점수</label>
+          <input type="text" id="sscore" placeholder="점수를 입력하세요" />
+        </div>
+        <button type="submit">저장</button>
+      </form>
+    </div>
+    <script>
+      //search
+      const sno = localStorage.getItem("search");
+      if (!sno) {
+        alert("정상적인 접근이 아닙니다.");
+        location.href = "index.html";
+      }
+      let data = JSON.parse(localStorage.getItem("students"));
+      const result = data.filter((x) => x.sno == sno)[0];
+      console.log("update TEST: ", sno, result);
+      document.getElementById("sno").value = result.sno;
+      document.getElementById("sname").value = result.sname;
+      document.getElementById("sscore").value = result.sscore;
+      //저장
+      document.querySelector("form").addEventListener("submit", modifyAction);
+      function modifyAction(e) {
+        e.preventDefault();
+        const [cno, cname, cscore] = Array.from(
+          document.querySelectorAll("input")
+        ).map((x) => x.value);
+
+        data.forEach((x) => {
+          if (x.sno == cno) {
+            [x.sno, x.sname, x.sscore] = [cno, cname, cscore];
+          }
+        });
+        localStorage.setItem("students", JSON.stringify(data));
+        console.log("update: ", localStorage);
+        localStorage.removeItem("search");
+        location.href = "board.html";
+      }
+    </script>
+  </body>
+</html>

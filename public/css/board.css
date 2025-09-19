@@ -64,50 +64,103 @@ body {
 /* --- List Section --- */
 
 #data-container {
-  max-width: 600px;
+  max-width: 700px; /* 목록 너비를 약간 넓혀 가독성 확보 */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* 각 학생 정보 카드 스타일 */
+.data-item {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: space-between; /* 내부 요소들 사이에 공간을 균등하게 배분 */
+  align-items: center; /* 세로 중앙 정렬 */
   gap: 1rem;
 }
 
-/* 각 데이터 아이템(카드)의 기본 스타일 */
-.data-item {
-  background-color: #ffffff;
-  padding: 1.25rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column; /* 세로로 쌓이도록 설정 */
-  align-items: flex-start; /* 왼쪽 정렬 */
-  gap: 0.5rem; /* 아이템 내부의 span 간 간격 */
-}
-
 .data-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ID 스타일 */
+/* 학생 정보(번호, 이름, 점수)를 감싸는 div (CSS 개선을 위해 추가) */
+.item-info {
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* 각 정보 항목(번호, 이름, 점수) 스타일 */
+.item-info span {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: left;
+}
+
+/* 학번 스타일 */
+.item-info span:nth-of-type(1) {
+  flex-basis: 15%;
+  color: #888;
+}
+
+/* 이름 스타일 (강조) */
+.item-info span:nth-of-type(2) {
+  flex-basis: 55%;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 점수 스타일 */
+.item-info span:nth-of-type(3) {
+  flex-basis: 30%;
+  font-family: monospace;
+  font-weight: bold;
+  color: #007bff;
+  text-align: right;
+}
+
+/* 수정 버튼 스타일 */
+.data-item button {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #6c757d; /* 중립적인 수정 버튼 색상 */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0; /* 버튼 크기가 줄어들지 않도록 설정 */
+}
+
+.data-item button:hover {
+  background-color: #5a6268;
+}
+
+/* --- 기존 스타일 유지 (현재 미사용) --- */
+.item-meta {
+  font-size: 0.9rem;
+  color: #8492a6;
+}
+
 .item-meta-id {
   font-size: 0.8rem;
   color: #b0bec5;
   font-weight: 500;
 }
 
-/* 제목(Title) 역할의 스타일 */
 .item-title {
   font-size: 1.15rem;
   font-weight: 600;
   color: #2c3e50;
-}
-
-/* 작성자, 조회수 등 메타 정보(Meta) 역할의 스타일 */
-.item-meta {
-  font-size: 0.9rem;
-  color: #8492a6;
 }
 
 /* --- Comment Section --- */
@@ -150,7 +203,6 @@ body {
 /* 화면에 불필요한 id, postId 정보는 숨기는 것이 좋습니다. */
 /* JS에서 text만 span으로 만들도록 수정하는 것을 추천합니다. */
 
-
 /* --- 아코디언 기능을 위한 CSS --- */
 
 /* .data-item에 .item-collapsed 클래스가 추가되었을 때의 스타일 */
@@ -162,3 +214,77 @@ body {
 
 /* (선택사항) 부드러운 애니메이션 효과 */
 /* JS와 함께 사용해야 하며, 조금 더 복잡한 구조가 필요합니다. */
+
+/* 전체 폼을 감싸는 컨테이너 스타일 */
+.add-student {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+/* 폼 레이아웃 */
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ▼▼▼ 새로운 스타일 추가 ▼▼▼ */
+/* 라벨과 인풋을 감싸는 그룹 */
+.form-group {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 1rem; /* 라벨과 입력창 사이 간격 */
+}
+
+/* ▼▼▼ 스타일 수정 ▼▼▼ */
+/* 라벨 스타일 */
+.student-form label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.9rem;
+  flex-shrink: 0; /* 공간이 좁아져도 줄어들지 않음 */
+  width: 50px; /* 모든 라벨의 너비를 고정하여 정렬 */
+}
+
+/* 입력창 스타일 */
+.student-form input[type="text"] {
+  width: 100%;
+  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 입력창을 클릭(포커스)했을 때 효과 */
+.student-form input[type="text"]:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* '저장' 버튼 스타일 */
+.student-form button[type="submit"] {
+  align-self: flex-end;
+  padding: 0.6rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* 버튼에 마우스를 올렸을 때 효과 */
+.student-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
