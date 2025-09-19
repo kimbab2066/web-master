@@ -1,24 +1,24 @@
-/* 전체적인 폰트나 배경색을 설정합니다 (선택 사항) */
+/* --- Global & Layout --- */
+/* 전체적인 폰트나 배경색을 설정합니다. */
 body {
   background-color: #f0f2f5;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 2rem;
+  margin: 0;
 }
 
-/* --- 입력 폼 관련 CSS --- */
+/* --- Form Section --- */
+/* form과 list를 감싸는 외부 컨테이너는 특별한 스타일이 필요 없습니다. */
 
-/* 폼 전체를 감싸는 컨테이너 스타일 */
-#form-container {
+/* form 태그 자체의 스타일 */
+.add-item-form {
   max-width: 600px;
   margin: 0 auto 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Form 태그 자체의 스타일 */
-.add-item-form {
   display: flex;
   gap: 0.75rem;
   align-items: center;
@@ -61,11 +61,9 @@ body {
   background-color: #4338ca;
 }
 
-/* --- 목록 관련 CSS --- */
+/* --- List Section --- */
 
-/* 목록 전체를 감싸는 컨테이너 스타일 */
 #data-container {
-  padding-top: 20px;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
@@ -76,61 +74,91 @@ body {
 /* 각 데이터 아이템(카드)의 기본 스타일 */
 .data-item {
   background-color: #ffffff;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column; /* 세로로 쌓이도록 설정 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  gap: 0.5rem; /* 아이템 내부의 span 간 간격 */
 }
 
-/* 마우스를 아이템 위에 올렸을 때(hover) 스타일 */
 .data-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 왼쪽 정렬 그룹 스타일 */
-.item-content-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  /* 제목이 길어질 때를 대비해 너비 제한 (선택 사항) */
-  min-width: 0;
-}
-
-/* ID를 아이콘처럼 만드는 스타일 */
-.item-id {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  background-color: #eef2ff;
-  color: #4f46e5;
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 50%;
-  flex-shrink: 0;
+/* ID 스타일 */
+.item-meta-id {
+  font-size: 0.8rem;
+  color: #b0bec5;
+  font-weight: 500;
 }
 
 /* 제목(Title) 역할의 스타일 */
 .item-title {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: #2c3e50;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* 메타 정보(Meta) 역할의 스타일 */
+/* 작성자, 조회수 등 메타 정보(Meta) 역할의 스타일 */
 .item-meta {
   font-size: 0.9rem;
   color: #8492a6;
-  flex-shrink: 0;
-  white-space: nowrap;
 }
+
+/* --- Comment Section --- */
+
+/* 댓글 전체를 감싸는 컨테이너 */
+.comment-container {
+  width: 100%;
+  /* margin-top: 1rem; */
+  /* padding-top: 1rem; */
+  /* border-top: 1px solid #f0f2f5; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* JS에서 댓글을 생성할 때, 아래처럼 author와 text를 구분하면 더 좋습니다.
+  <div class="comment">
+    <span class="comment-author">작성자</span>
+    <p class="comment-text">댓글 내용</p>
+  </div>
+  아래는 현재 JS 구조를 위한 최소한의 스타일입니다.
+*/
+
+/* 개별 댓글 스타일 (현재 JS 구조 기준) */
+.item-comment {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  background-color: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.item-comment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 현재 JS는 id, text, postId를 모두 span으로 만들고 있습니다. */
+/* 화면에 불필요한 id, postId 정보는 숨기는 것이 좋습니다. */
+/* JS에서 text만 span으로 만들도록 수정하는 것을 추천합니다. */
+
+
+/* --- 아코디언 기능을 위한 CSS --- */
+
+/* .data-item에 .item-collapsed 클래스가 추가되었을 때의 스타일 */
+.data-item.item-collapsed .item-meta,
+.data-item.item-collapsed .comment-container {
+  /* 제목(item-title)과 ID(item-id)를 제외한 모든 것을 숨깁니다. */
+  display: none;
+}
+
+/* (선택사항) 부드러운 애니메이션 효과 */
+/* JS와 함께 사용해야 하며, 조금 더 복잡한 구조가 필요합니다. */
